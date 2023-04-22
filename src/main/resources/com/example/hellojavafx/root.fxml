@@ -143,10 +143,7 @@
           </children>
         </AnchorPane>
         <AnchorPane fx:id="mainView">
-          <children>
-            <Label alignment="CENTER" font="$x1" layoutX="14.0" layoutY="14.0" style="&#10;" text="Details" textAlignment="CENTER" textFill="$x2" wrapText="false" />
-              <fx:include source="hello-view.fxml" />
-          </children>
+            <fx:include source="hello-view.fxml" />
         </AnchorPane>
       </items>
     </SplitPane>

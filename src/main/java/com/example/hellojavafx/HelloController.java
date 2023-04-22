@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.KeyCode;
+import javafx.scene.layout.VBox;
 import javafx.stage.Popup;
 
 import java.sql.SQLException;
@@ -26,6 +27,8 @@ public class HelloController {
     @FXML
     private TableColumn<AssetType, String> assetTypeName;
     @FXML private TextField assetTypeNameField;
+//    @FXML
+//    private VBox mainVBox;
     int iClickCount = 0;
 
 
@@ -85,6 +88,12 @@ public class HelloController {
     @FXML
     private void initialize() throws SQLException, ClassNotFoundException {
         try {
+            String parentWidth;
+
+//            System.out.println("Parent props");
+//            System.out.println(mainVBox.getParent());
+//            parentWidth = mainVBox.getParent().getProperties();
+//            mainVBox.setPrefWidth();
             getAssetsTypes();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
