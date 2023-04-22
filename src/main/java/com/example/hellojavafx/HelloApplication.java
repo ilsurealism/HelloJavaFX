@@ -15,7 +15,8 @@ public class HelloApplication extends Application {
 //        Connect.createDB();
         DBUtil.connect();
         DBUtil.initDBObjects();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+//        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("root.fxml"));
 //        System.out.println(Screen.getPrimary().getDpi());
 //        System.out.println(Screen.getPrimary().getOutputScaleX());
 //        System.out.println(Screen.getPrimary().getOutputScaleY());
