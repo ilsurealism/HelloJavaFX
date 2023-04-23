@@ -4,12 +4,16 @@ import javafx.beans.Observable;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.KeyCode;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Popup;
 
+import java.io.IOException;
 import java.sql.SQLException;
 
 public class HelloController {
@@ -27,8 +31,10 @@ public class HelloController {
     @FXML
     private TableColumn<AssetType, String> assetTypeName;
     @FXML private TextField assetTypeNameField;
+    @FXML private AnchorPane mainAnchor;
 //    @FXML
 //    private VBox mainVBox;
+    private Parent root; // root FXML
     int iClickCount = 0;
 
 
@@ -88,7 +94,8 @@ public class HelloController {
     @FXML
     private void initialize() throws SQLException, ClassNotFoundException {
         try {
-            String parentWidth;
+
+
 
 //            System.out.println("Parent props");
 //            System.out.println(mainVBox.getParent());
@@ -144,32 +151,22 @@ public class HelloController {
     @FXML
     protected void deleteAssetType(ActionEvent event) throws SQLException, ClassNotFoundException {
 
-//        ObservableList<Purse> data = tableView.getItems();
-//        data.add(new Purse(purseNameField.getText(), Double.parseDouble(sumField.getText())));
-        System.out.println(assetTypeView.focusModelProperty().get().focusedCellProperty().get().toString());
-        System.out.println(assetTypeView.focusModelProperty().get().focusedCellProperty().get());
-        System.out.println(assetTypeView.focusModelProperty().get().focusedCellProperty());
-        System.out.println(assetTypeView.focusModelProperty().get());
-        System.out.println(assetTypeView.focusModelProperty());
-        System.out.println(assetTypeView);
-
-        System.out.println("--------------------------------");
         TablePosition pos = assetTypeView.getSelectionModel().getSelectedCells().get(0);
-        System.out.println(pos);
+
         int row = pos.getRow();
-        System.out.println(row);
+
         AssetType assetType = assetTypeView.getItems().get(row);
-        System.out.println(assetType);
+
         TableColumn col = pos.getTableColumn();
 //        String assetTypeName = (String) col.getCellObservableValue(assetType).getValue();
         String assetTypeName = (String) assetType.getAssetName();
-        System.out.println(col);
-        System.out.println(assetTypeName);
         String sql = "delete from assets_types where name = '" + assetTypeName + "';";
+
         try {
             DBUtil.dbExecuteUpdate(sql);
             assetTypeNameField.setText("");
             getAssetsTypes();
+
         } catch (SQLException e) {
             System.out.print("Error occurred while DELETE Operation: " + e);
             throw e;

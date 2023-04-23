@@ -16,68 +16,144 @@
 <?import javafx.scene.text.Font?>
 
 <!--<?import com.example.hellojavafx.Purse ?>-->
-
-<VBox alignment="CENTER" fx:id="mainVBox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="540.0" prefHeight="${mainVBox.parent.height}" prefWidth="${mainVBox.parent.width}" spacing="20.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hellojavafx.HelloController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-    </padding>
-   <ScrollPane prefHeight="${mainScrollPane.parent.height}" prefWidth="${mainScrollPane.parent.width}" fx:id="mainScrollPane">
-     <content>
-       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="531.0" prefWidth="969.0">
+<!--<VBox alignment="CENTER" fx:id="mainVBox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="540.0" prefHeight="${mainVBox.parent.height}" spacing="20.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hellojavafx.HelloController">-->
+<!--    <padding>-->
+<!--        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />-->
+<!--    </padding>-->
+<!--</VBox>-->
+<!--<ScrollPane fx:id="mainScrollPane" pannable="true" prefHeight="590.0" prefWidth="971.0" vbarPolicy="ALWAYS" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hellojavafx.HelloController">-->
+<!--     <content>-->
+<!--     </content>-->
+<!--   </ScrollPane>-->
+<AnchorPane fx:id="mainAnchor" prefHeight="${mainAnchor.height.parent}" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hellojavafx.HelloController">
             <children>
-               <VBox layoutX="22.0" layoutY="29.0" prefHeight="376.0" prefWidth="774.0">
-                  <children>
-                      <Label text="Assets Types" textAlignment="CENTER">
-                        <font>
-                           <Font name="System Bold" size="18.0" />
-                        </font>
-                     </Label>
-                      <TableView fx:id="assetTypeView" editable="true" onContextMenuRequested="#showTableRowContextMenu" prefWidth="759.0" tableMenuButtonVisible="true">
-                          <columns>
-                              <TableColumn fx:id="assetTypeName" prefWidth="225.0" text="Asset Name" />
-                          </columns>
-                          <tooltip>
-                              <Tooltip text="Select row and call context menu to delete" />
-                          </tooltip>
-                          <contextMenu>
-                              <ContextMenu>
-                                  <items>
-                                      <MenuItem onAction="#deleteAssetType" text="Delete" />
-                                  </items>
-                              </ContextMenu>
-                          </contextMenu>
-                      </TableView>
-                  </children>
-               </VBox>
-                <HBox layoutX="22.0" layoutY="418.0" prefHeight="25.0" prefWidth="319.0">
-                    <TextField fx:id="assetTypeNameField" prefWidth="200" promptText="Asset Type Name" />
-                    <Button onAction="#addAssetType" text="Add">
-                        <tooltip>
-                            <Tooltip text="Click to add new Asset Type" />
-                        </tooltip>
-                    </Button>
-                  <Button accessibleHelp="Delete" accessibleRoleDescription="Delete" accessibleText="Delete selected row" layoutX="210.0" layoutY="10.0" onAction="#deleteAssetType" onContextMenuRequested="#showTableRowContextMenu" text="Delete">
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <HBox.margin>
-                        <Insets left="20.0" />
-                     </HBox.margin>
-                      <tooltip>
-                          <Tooltip text="Select row to delete" />
-                      </tooltip>
-                      <contextMenu>
-                          <ContextMenu>
-                              <items>
-                                  <MenuItem text="hello" />
-                              </items>
-                          </ContextMenu>
-                      </contextMenu>
-                  </Button>
-                </HBox>
-            </children>
-         </AnchorPane>
-     </content>
-   </ScrollPane>
+<!--                <ScrollPane fx:id="mainScrollPane">-->
+<!--                    <content>-->
+                        <AnchorPane prefHeight="${mainAnchor.height}">
+                            <children>
+                                <VBox spacing="30.0">
+                                    <children>
+                                        <VBox spacing="15.0">
+                                            <children>
+                                                <Label text="Assets Types" textAlignment="CENTER">
+                                                    <font>
+                                                        <Font name="System Bold" size="18.0" />
+                                                    </font>
+                                                </Label>
+                                                <TableView fx:id="assetTypeView" editable="true" onContextMenuRequested="#showTableRowContextMenu" tableMenuButtonVisible="true">
+                                                    <columns>
+                                                        <TableColumn fx:id="assetTypeName" prefWidth="225.0" text="Asset Name" />
+                                                    </columns>
+                                                    <tooltip>
+                                                        <Tooltip text="Select row and call context menu to delete" />
+                                                    </tooltip>
+                                                    <contextMenu>
+                                                        <ContextMenu>
+                                                            <items>
+                                                                <MenuItem onAction="#deleteAssetType" text="Delete" />
+                                                            </items>
+                                                        </ContextMenu>
+                                                    </contextMenu>
+                                                </TableView>
+                                                <HBox prefHeight="25.0" prefWidth="319.0">
+                                                    <TextField fx:id="assetTypeNameField" prefWidth="200" promptText="Asset Type Name" />
+                                                    <Button onAction="#addAssetType" text="Add">
+                                                        <tooltip>
+                                                            <Tooltip text="Click to add new Asset Type" />
+                                                        </tooltip>
+                                                    </Button>
+                                                    <Button accessibleHelp="Delete" accessibleRoleDescription="Delete" accessibleText="Delete selected row" layoutX="210.0" layoutY="10.0" onAction="#deleteAssetType" onContextMenuRequested="#showTableRowContextMenu" text="Delete">
+                                                        <opaqueInsets>
+                                                            <Insets />
+                                                        </opaqueInsets>
+                                                        <HBox.margin>
+                                                            <Insets left="20.0" />
+                                                        </HBox.margin>
+                                                        <tooltip>
+                                                            <Tooltip text="Select row to delete" />
+                                                        </tooltip>
+                                                        <contextMenu>
+                                                            <ContextMenu>
+                                                                <items>
+                                                                    <MenuItem text="hello" />
+                                                                </items>
+                                                            </ContextMenu>
+                                                        </contextMenu>
+                                                    </Button>
+                                                </HBox>
+                                            </children>
+                                        </VBox>
+                                        <VBox layoutY="413.0" prefHeight="376.0" prefWidth="512" spacing="15.0">
+                                            <children>
+                                                <Label text="Currencies" textAlignment="CENTER">
+                                                    <font>
+                                                        <Font name="System Bold" size="18.0" />
+                                                    </font>
+                                                </Label>
+                                                <TableView fx:id="assetTypeView1" editable="true" onContextMenuRequested="#showTableRowContextMenu" prefHeight="350.0" prefWidth="503.0" tableMenuButtonVisible="true">
+                                                    <columns>
+                                                        <TableColumn fx:id="assetTypeName1" editable="false" prefWidth="225.0" text="ID" visible="false" />
+                                                        <TableColumn fx:id="assetTypeName12" prefWidth="225.0" text="Currency Code" />
+                                                        <TableColumn fx:id="assetTypeName11" prefWidth="225.0" text="Currency Name" />
+                                                    </columns>
+                                                    <tooltip>
+                                                        <Tooltip text="Select row and call context menu to delete" />
+                                                    </tooltip>
+                                                    <contextMenu>
+                                                        <ContextMenu>
+                                                            <items>
+                                                                <MenuItem onAction="#deleteAssetType" text="Delete" />
+                                                            </items>
+                                                        </ContextMenu>
+                                                    </contextMenu>
+                                                </TableView>
+                                                <HBox prefHeight="25.0" prefWidth="319.0">
+                                                    <children>
+                                                        <TextField fx:id="assetTypeNameField1" prefWidth="200" promptText="Asset Type Name" text="Currency Code" />
+                                                        <TextField fx:id="assetTypeNameField11" layoutX="10.0" layoutY="10.0" prefWidth="200" promptText="Asset Type Name" text="Currency Name" />
+                                                        <Button onAction="#addAssetType" text="Add">
+                                                            <tooltip>
+                                                                <Tooltip text="Click to add new Asset Type" />
+                                                            </tooltip>
+                                                        </Button>
+                                                        <Button accessibleHelp="Delete" accessibleRoleDescription="Delete" accessibleText="Delete selected row" layoutX="210.0" layoutY="10.0" onAction="#deleteAssetType" onContextMenuRequested="#showTableRowContextMenu" text="Delete">
+                                                            <opaqueInsets>
+                                                                <Insets />
+                                                            </opaqueInsets>
+                                                            <HBox.margin>
+                                                                <Insets left="20.0" />
+                                                            </HBox.margin>
+                                                            <tooltip>
+                                                                <Tooltip text="Select row to delete" />
+                                                            </tooltip>
+                                                            <contextMenu>
+                                                                <ContextMenu>
+                                                                    <items>
+                                                                        <MenuItem text="hello" />
+                                                                    </items>
+                                                                </ContextMenu>
+                                                            </contextMenu>
+                                                        </Button>
+                                                    </children>
+                                                </HBox>
+                                            </children>
+                                        </VBox>
+                                    </children>
 
-</VBox>
+                                    <padding>
+                                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                    </padding>
+
+
+                                </VBox>
+                            </children>
+                        </AnchorPane>
+<!--                    </content>-->
+<!--                </ScrollPane>-->
+
+
+            </children>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+         </AnchorPane>

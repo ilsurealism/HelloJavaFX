@@ -53,4 +53,9 @@ public class RootController {
         }
 //        System.out.println(location.getClass());
     }
+
+    public void getMainViewHeight() {
+
+        System.out.println(mainView.getHeight());
+    }
 }

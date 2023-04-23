@@ -48,6 +48,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.control.ScrollPane?>
 <VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hellojavafx.RootController">
   <children>
     <MenuBar VBox.vgrow="NEVER">
@@ -128,12 +129,12 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Label>
-                        <Hyperlink fx:id="mainBtn" onAction="#changeView" text="Main">
+                        <Hyperlink fx:id="mainBtn" depthTest="DISABLE" graphicTextGap="0.0" onAction="#changeView" pickOnBounds="false" style="-fx-border-width: 0; -fx-background-size: 0;" text="Main" textAlignment="CENTER" underline="false" visited="true">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Hyperlink>
-                        <Hyperlink fx:id="settingsBtn" layoutX="20.0" layoutY="94.0" onAction="#changeView" text="Settings">
+                        <Hyperlink fx:id="settingsBtn" contentDisplay="CENTER" depthTest="DISABLE" graphicTextGap="0.0" layoutX="20.0" layoutY="94.0" onAction="#changeView" style="-fx-border-width: 0; -fx-background-size: 0;" pickOnBounds="false" text="Settings" textAlignment="CENTER" underline="false" visited="true">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -142,9 +143,13 @@
                   </VBox>
           </children>
         </AnchorPane>
-        <AnchorPane fx:id="mainView">
+          <ScrollPane>
+                  <content>
+        <AnchorPane fx:id="mainView" style="-fx-background-size: 0;">
             <fx:include source="hello-view.fxml" />
         </AnchorPane>
+                  </content>
+          </ScrollPane>
       </items>
     </SplitPane>
     <HBox id="HBox" alignment="CENTER_LEFT" spacing="5.0" VBox.vgrow="NEVER">
