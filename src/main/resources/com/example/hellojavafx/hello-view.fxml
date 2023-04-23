@@ -83,6 +83,7 @@
                                                 </HBox>
                                             </children>
                                         </VBox>
+
                                         <VBox layoutY="413.0" prefHeight="376.0" prefWidth="512" spacing="15.0">
                                             <children>
                                                 <Label text="Currencies" textAlignment="CENTER">
@@ -90,11 +91,11 @@
                                                         <Font name="System Bold" size="18.0" />
                                                     </font>
                                                 </Label>
-                                                <TableView fx:id="assetTypeView1" editable="true" onContextMenuRequested="#showTableRowContextMenu" prefHeight="350.0" prefWidth="503.0" tableMenuButtonVisible="true">
+                                                <TableView fx:id="currencyView" editable="true" onContextMenuRequested="#showTableRowContextMenu" prefHeight="350.0" prefWidth="503.0" tableMenuButtonVisible="true">
                                                     <columns>
-                                                        <TableColumn fx:id="assetTypeName1" editable="false" prefWidth="225.0" text="ID" visible="false" />
-                                                        <TableColumn fx:id="assetTypeName12" prefWidth="225.0" text="Currency Code" />
-                                                        <TableColumn fx:id="assetTypeName11" prefWidth="225.0" text="Currency Name" />
+                                                        <TableColumn fx:id="currencyIDColumn" prefWidth="225.0" text="Currency ID" visible="false" />
+                                                        <TableColumn fx:id="currencyCodeColumn" prefWidth="225.0" text="Currency Code" />
+                                                        <TableColumn fx:id="currencyNameColumn" prefWidth="225.0" text="Currency Name" />
                                                     </columns>
                                                     <tooltip>
                                                         <Tooltip text="Select row and call context menu to delete" />
@@ -102,21 +103,21 @@
                                                     <contextMenu>
                                                         <ContextMenu>
                                                             <items>
-                                                                <MenuItem onAction="#deleteAssetType" text="Delete" />
+                                                                <MenuItem onAction="#deleteCurrency" text="Delete" />
                                                             </items>
                                                         </ContextMenu>
                                                     </contextMenu>
                                                 </TableView>
                                                 <HBox prefHeight="25.0" prefWidth="319.0">
                                                     <children>
-                                                        <TextField fx:id="assetTypeNameField1" prefWidth="200" promptText="Asset Type Name" text="Currency Code" />
-                                                        <TextField fx:id="assetTypeNameField11" layoutX="10.0" layoutY="10.0" prefWidth="200" promptText="Asset Type Name" text="Currency Name" />
-                                                        <Button onAction="#addAssetType" text="Add">
+                                                        <TextField fx:id="currencyCodeField" prefWidth="200" promptText="Currency Code"  />
+                                                        <TextField fx:id="currencyNameField" layoutX="10.0" layoutY="10.0" prefWidth="200" promptText="Currency Name" />
+                                                        <Button onAction="#addCurrency" text="Add">
                                                             <tooltip>
                                                                 <Tooltip text="Click to add new Asset Type" />
                                                             </tooltip>
                                                         </Button>
-                                                        <Button accessibleHelp="Delete" accessibleRoleDescription="Delete" accessibleText="Delete selected row" layoutX="210.0" layoutY="10.0" onAction="#deleteAssetType" onContextMenuRequested="#showTableRowContextMenu" text="Delete">
+                                                        <Button accessibleHelp="Delete" accessibleRoleDescription="Delete" onAction="#deleteCurrency" accessibleText="Delete selected row" layoutX="210.0" layoutY="10.0"  onContextMenuRequested="#showTableRowContextMenu" text="Delete">
                                                             <opaqueInsets>
                                                                 <Insets />
                                                             </opaqueInsets>

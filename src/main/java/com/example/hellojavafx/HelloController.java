@@ -28,10 +28,18 @@ public class HelloController {
 
     // AssetType table
     @FXML private TableView<AssetType> assetTypeView;
+    @FXML private TableView<Currency> currencyView;
     @FXML
     private TableColumn<AssetType, String> assetTypeName;
+    @FXML
+    private TableColumn<Currency, Number> currencyIDColumn;
+    @FXML
+    private TableColumn<Currency, String> currencyCodeColumn, currencyNameColumn;
     @FXML private TextField assetTypeNameField;
     @FXML private AnchorPane mainAnchor;
+    @FXML
+    private TextField currencyCodeField, currencyNameField;
+
 //    @FXML
 //    private VBox mainVBox;
     private Parent root; // root FXML
@@ -73,6 +81,11 @@ public class HelloController {
         assetTypeView.setItems(assetTypesData);
     }
 
+    @FXML
+    private void populateCurrencies(ObservableList<Currency> currenciesData) throws ClassNotFoundException{
+        currencyView.setItems(currenciesData);
+    }
+
 //    @FXML
 //    private void populateAndShowAssetsTypes(AssetType aT) {
 //        if (aT != null) {
@@ -92,6 +105,17 @@ public class HelloController {
     }
 
     @FXML
+    private void getCurrencies() throws SQLException, ClassNotFoundException {
+        try {
+            ObservableList<Currency> cData = CurrencyDAO.selectCurrencies();
+            populateCurrencies(cData);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            throw e;
+        }
+    }
+
+    @FXML
     private void initialize() throws SQLException, ClassNotFoundException {
         try {
 
@@ -102,11 +126,16 @@ public class HelloController {
 //            parentWidth = mainVBox.getParent().getProperties();
 //            mainVBox.setPrefWidth();
             getAssetsTypes();
+            getCurrencies();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
 
         assetTypeName.setCellValueFactory(cellData -> cellData.getValue().assetNameProperty());
+
+        currencyIDColumn.setCellValueFactory(cellData -> cellData.getValue().currencyIDProperty());
+        currencyCodeColumn.setCellValueFactory(cellData -> cellData.getValue().currencyCodeProperty());
+        currencyNameColumn.setCellValueFactory(cellData -> cellData.getValue().currencyNameProperty());
     }
 
     private void setAssetTypeViewEditable() {
@@ -131,6 +160,24 @@ public class HelloController {
     }
 
     @FXML
+    protected void addCurrency(ActionEvent event) throws SQLException, ClassNotFoundException {
+        String arg1 = currencyCodeField.getText();
+        String arg2 = currencyNameField.getText();
+        if (arg1.length() > 0 && arg2.length() > 0) {
+            String sql = "insert into currencies (code, name) values ('" + arg1 + "', '" + arg2 + "');";
+            try {
+                DBUtil.dbExecuteUpdate(sql);
+                currencyCodeField.setText("");
+                currencyNameField.setText("");
+                getCurrencies();
+            } catch (SQLException e) {
+                System.out.print("Error occurred while DELETE Operation: " + e);
+                throw e;
+            }
+        }
+    }
+
+    @FXML
     protected void addAssetType(ActionEvent event) throws SQLException, ClassNotFoundException {
 //        ObservableList<Purse> data = tableView.getItems();
 //        data.add(new Purse(purseNameField.getText(), Double.parseDouble(sumField.getText())));
@@ -145,6 +192,28 @@ public class HelloController {
                 System.out.print("Error occurred while DELETE Operation: " + e);
                 throw e;
             }
+        }
+    }
+
+    @FXML
+    protected void deleteCurrency(ActionEvent event) throws SQLException, ClassNotFoundException {
+        TablePosition pos = currencyView.getSelectionModel().getSelectedCells().get(0);
+
+        int row = pos.getRow();
+
+        Currency currency = currencyView.getItems().get(row);
+
+        TableColumn col = pos.getTableColumn();
+//        String assetTypeName = (String) col.getCellObservableValue(assetType).getValue();
+        String currencyID =  String.valueOf(currency.getCurrencyID());
+        String sql = "delete from currencies where id = " + currencyID + ";";
+
+        try {
+            DBUtil.dbExecuteUpdate(sql);
+            getCurrencies();
+        } catch (SQLException e) {
+            System.out.print("Error occurred while DELETE Operation: " + e);
+            throw e;
         }
     }
 
