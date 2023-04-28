@@ -39,6 +39,7 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -48,7 +49,6 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<?import javafx.scene.control.ScrollPane?>
 <VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hellojavafx.RootController">
   <children>
     <MenuBar VBox.vgrow="NEVER">
@@ -134,7 +134,12 @@
                               <Font size="18.0" />
                            </font>
                         </Hyperlink>
-                        <Hyperlink fx:id="settingsBtn" contentDisplay="CENTER" depthTest="DISABLE" graphicTextGap="0.0" layoutX="20.0" layoutY="94.0" onAction="#changeView" style="-fx-border-width: 0; -fx-background-size: 0;" pickOnBounds="false" text="Settings" textAlignment="CENTER" underline="false" visited="true">
+                        <Hyperlink fx:id="assetsBtn" depthTest="DISABLE" graphicTextGap="0.0" layoutX="20.0" layoutY="94.0" onAction="#changeView" pickOnBounds="false" style="-fx-border-width: 0; -fx-background-size: 0;" text="Assets" textAlignment="CENTER" underline="false" visited="true">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Hyperlink>
+                        <Hyperlink fx:id="settingsBtn" contentDisplay="CENTER" depthTest="DISABLE" graphicTextGap="0.0" layoutX="20.0" layoutY="94.0" onAction="#changeView" pickOnBounds="false" style="-fx-border-width: 0; -fx-background-size: 0;" text="Settings" textAlignment="CENTER" underline="false" visited="true">
                            <font>
                               <Font size="18.0" />
                            </font>
