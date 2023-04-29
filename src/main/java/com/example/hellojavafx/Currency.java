@@ -40,5 +40,8 @@ public class Currency {
         return currencyName;
     }
 
-
+    @Override
+    public String toString() {
+        return getCurrencyCode();
+    }
 }

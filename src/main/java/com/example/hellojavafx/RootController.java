@@ -40,6 +40,9 @@ public class RootController {
             case "settingsBtn":
                 newViewName = "hello-view.fxml";
                 break;
+            case "budgetBtn":
+                newViewName = "budget-view.fxml";
+                break;
             case "assetsBtn":
                 newViewName = "assets-view.fxml";
                 break;

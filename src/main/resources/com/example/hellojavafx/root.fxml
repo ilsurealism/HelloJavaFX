@@ -134,6 +134,11 @@
                               <Font size="18.0" />
                            </font>
                         </Hyperlink>
+                         <Hyperlink fx:id="budgetBtn" depthTest="DISABLE" graphicTextGap="0.0" layoutX="20.0" layoutY="94.0" onAction="#changeView" pickOnBounds="false" style="-fx-border-width: 0; -fx-background-size: 0;" text="Budget Records" textAlignment="CENTER" underline="false" visited="true">
+                             <font>
+                                 <Font size="18.0" />
+                             </font>
+                         </Hyperlink>
                         <Hyperlink fx:id="assetsBtn" depthTest="DISABLE" graphicTextGap="0.0" layoutX="20.0" layoutY="94.0" onAction="#changeView" pickOnBounds="false" style="-fx-border-width: 0; -fx-background-size: 0;" text="Assets" textAlignment="CENTER" underline="false" visited="true">
                            <font>
                               <Font size="18.0" />
@@ -151,7 +156,7 @@
           <ScrollPane>
                   <content>
         <AnchorPane fx:id="mainView" style="-fx-background-size: 0;">
-            <fx:include source="hello-view.fxml" />
+            <fx:include source="budget-view.fxml" />
         </AnchorPane>
                   </content>
           </ScrollPane>

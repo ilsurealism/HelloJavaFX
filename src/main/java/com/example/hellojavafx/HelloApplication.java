@@ -25,8 +25,8 @@ public class HelloApplication extends Application {
 //        System.out.println(Screen.getPrimary().getVisualBounds().getMinX());
 //        System.out.println(Screen.getPrimary().getVisualBounds().getMinY());
         // width and height of the screen extension divided by 2
-        int minX = (int) Screen.getPrimary().getVisualBounds().getWidth() / 2;
-        int minY = (int) Screen.getPrimary().getVisualBounds().getHeight() / 2;
+        int minX = (int) Math.round(Screen.getPrimary().getVisualBounds().getWidth() / 1.5);
+        int minY = (int) Math.round(Screen.getPrimary().getVisualBounds().getHeight() / 1.5);
 
 //        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
         Scene scene = new Scene(fxmlLoader.load(), minX, minY);

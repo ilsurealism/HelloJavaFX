@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 public class AssetDAO {
     public static ObservableList<Asset> selectAssets() throws SQLException, ClassNotFoundException {
-        String sql = "select id, name, asset_type_id, creation_dt from assets order by creation_dt;";
+        String sql = "select a.id, a.name, a.asset_type_id, at.name asset_type_name, a.creation_dt from assets a inner join assets_types at on a.asset_type_id = at.id order by at.name, creation_dt;";
         try {
             ResultSet rsAssets = DBUtil.dbExecuteQuery(sql);
             ObservableList<Asset> assetsList = getAssetsList(rsAssets);
@@ -23,7 +23,7 @@ public class AssetDAO {
         ObservableList<Asset> assetsList = FXCollections.observableArrayList();
 
         while (rs.next()) {
-            Asset asset = new Asset(rs.getLong("id"), rs.getString("name"), rs.getLong("asset_type_id"));
+            Asset asset = new Asset(rs.getLong("id"), rs.getString("name"), rs.getLong("asset_type_id"), rs.getString("asset_type_name"));
             assetsList.add(asset);
         }
         return assetsList;
