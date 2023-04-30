@@ -1,5 +1,6 @@
 package com.example.hellojavafx;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -63,5 +64,9 @@ public class RootController {
     public void getMainViewHeight() {
 
         System.out.println(mainView.getHeight());
+    }
+
+    public void quit() {
+        Platform.exit();
     }
 }
