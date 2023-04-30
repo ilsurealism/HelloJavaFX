@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hellojavafx.DashboardController">
+    <children>
+        <VBox spacing="15.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Label text="Dashboard" textAlignment="CENTER">
+                    <font>
+                        <Font name="System Bold" size="18.0" />
+                    </font>
+                </Label>
+                <TableView fx:id="budgetView" editable="true" prefHeight="350.0" prefWidth="640">
+                    <columns>
+                        <TableColumn fx:id="budgetIDColumn" prefWidth="125" text="Budget ID" visible="false" />
+                        <TableColumn fx:id="assetNameColumn" prefWidth="125" text="Asset Name" />
+                        <TableColumn fx:id="assetTypeNameColumn" prefWidth="150" text="Asset Type Name" />
+                        <TableColumn fx:id="currencyCodeColumn" prefWidth="125" text="Currency Code" />
+                        <TableColumn fx:id="sumColumn" prefWidth="125" text="Sum" />
+                        <TableColumn fx:id="levelColumn" prefWidth="125" text="Level" visible="false" />
+                    </columns>
+                    <tooltip>
+                        <Tooltip text="Select row and call context menu to delete" />
+                    </tooltip>
+<!--                    <contextMenu>-->
+<!--                        <ContextMenu>-->
+<!--                            <items>-->
+<!--                                <MenuItem onAction="#deleteBudgetRecord" text="Delete" />-->
+<!--                            </items>-->
+<!--                        </ContextMenu>-->
+<!--                    </contextMenu>-->
+                </TableView>
+<!--                <HBox prefHeight="25.0" prefWidth="319.0">-->
+<!--                    <children>-->
+<!--                        <ComboBox fx:id="assetNameComboBox" promptText="Asset Name" />-->
+<!--                        <ComboBox fx:id="currencyCodeComboBox" promptText="Currency Code" />-->
+<!--                        <TextField fx:id="sumField" prefHeight="25.0" prefWidth="125.0" promptText="Sum" />-->
+<!--                        <Button onAction="#addBudgetRecord" text="Add">-->
+<!--                            <tooltip>-->
+<!--                                <Tooltip text="Click to add new Budget Record" />-->
+<!--                            </tooltip>-->
+<!--                        </Button>-->
+<!--                        <Button accessibleHelp="Delete" accessibleRoleDescription="Delete" accessibleText="Delete selected row" layoutX="210.0" layoutY="10.0" onAction="#deleteBudgetRecord" onContextMenuRequested="#showTableRowContextMenu" text="Delete">-->
+<!--                            <opaqueInsets>-->
+<!--                                <Insets />-->
+<!--                            </opaqueInsets>-->
+<!--                            <HBox.margin>-->
+<!--                                <Insets left="20.0" />-->
+<!--                            </HBox.margin>-->
+<!--                            <tooltip>-->
+<!--                                <Tooltip text="Select row to delete" />-->
+<!--                            </tooltip>-->
+<!--                            <contextMenu>-->
+<!--                                <ContextMenu>-->
+<!--                                    <items>-->
+<!--                                        <MenuItem text="hello" />-->
+<!--                                    </items>-->
+<!--                                </ContextMenu>-->
+<!--                            </contextMenu>-->
+<!--                        </Button>-->
+<!--                    </children>-->
+<!--                </HBox>-->
+            </children>
+            <padding>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+            </padding>
+        </VBox>
+    </children>
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+</AnchorPane>

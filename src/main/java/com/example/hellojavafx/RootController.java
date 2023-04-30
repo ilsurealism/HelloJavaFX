@@ -47,7 +47,7 @@ public class RootController {
                 newViewName = "assets-view.fxml";
                 break;
             case "mainBtn":
-                newViewName = "main.fxml";
+                newViewName = "dashboard-view.fxml";
                 break;
             default:
                 break;

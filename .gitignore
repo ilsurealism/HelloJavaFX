@@ -40,3 +40,4 @@ build/
 *.jar
 *.db
 hellojavafx.db
+/templates

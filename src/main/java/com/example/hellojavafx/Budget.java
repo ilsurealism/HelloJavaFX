@@ -8,14 +8,14 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Budget {
-    private final SimpleLongProperty budgetID;
-    private final SimpleLongProperty assetID;
-    private final SimpleStringProperty assetName;
-    private final SimpleStringProperty assetTypeName;
-    private final SimpleLongProperty currencyID;
-    private final SimpleStringProperty currencyCode;
-    private final SimpleDoubleProperty sum;
-    private final SimpleStringProperty creationDT;
+    protected  SimpleLongProperty budgetID;
+    protected  SimpleLongProperty assetID;
+    protected  SimpleStringProperty assetName;
+    protected  SimpleStringProperty assetTypeName;
+    protected  SimpleLongProperty currencyID;
+    protected  SimpleStringProperty currencyCode;
+    protected  SimpleDoubleProperty sum;
+    protected  SimpleStringProperty creationDT;
 
     public Budget(long budgetID,
                   long assetID,
@@ -33,6 +33,10 @@ public class Budget {
             this.currencyCode = new SimpleStringProperty(currencyCode);
             this.sum = new SimpleDoubleProperty(sum);
             this.creationDT = new SimpleStringProperty(creationDT);
+    }
+
+    public Budget() {
+
     }
 
     public long getBudgetID() {

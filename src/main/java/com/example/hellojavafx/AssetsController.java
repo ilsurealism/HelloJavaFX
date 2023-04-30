@@ -114,19 +114,5 @@ public class AssetsController {
         assetIDColumn.setCellValueFactory(cellData -> cellData.getValue().assetIDProperty());
         assetNameColumn.setCellValueFactory(cellData -> cellData.getValue().assetNameProperty());
         assetTypeNameColumn.setCellValueFactory(cellData -> cellData.getValue().assetTypeNameProperty());
-//        assetTypeNameComboBox.setConverter(new StringConverter<AssetType2>() {
-//            @Override
-//            public String toString(AssetType2 assetType2) {
-//                return null;
-//            }
-//
-//            @Override
-//            public AssetType2 fromString(String s) {
-//                return null;
-//            }
-//        });
-
-
-
     }
 }
